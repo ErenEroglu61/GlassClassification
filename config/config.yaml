@@ -1,12 +1,32 @@
 data:
     raw_path: data/raw/glass.csv
     processed_data: data/processed
-    test_size: ?
+    test_size: 0.2
     validation_size: 0.1
+    drop_columns:
+        - Ba
+        - Fe
+    fillna_mean_columns:
+        - Mg
+        - K
 
 model:
-    algorithm: ?
-    hyperparameters: ?
+    algorithm: RandomForestClassifier
+    hyperparameters:
+        n_estimators: 100
+        max_depth: null
+        min_samples_split: 2
+        min_samples_leaf: 1
+        random_state: 15
 
 training:
-    ???
+    random_state: 15
+    stratify: true
+    scaler: StandardScaler
+    label_encoder: LabelEncoder
+    target_column: Type
+    metrics:
+        - accuracy
+        - precision
+        - recall
+        - f1
