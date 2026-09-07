@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Ana Sayfa - Glass Classification{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="hero">
+        <h1>🔬 Cam Sınıflandırma Sistemi</h1>
+        <p>Cam özelliklerini analiz ederek cam türünü otomatik olarak tanımla</p>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <h3>📊 7 Cam Türü</h3>
+            <p>Building Windows, Vehicle Windows, Containers, Tableware ve Headlamps</p>
+        </div>
+        <div class="feature-card">
+            <h3>🤖 Makine Öğrenmesi</h3>
+            <p>Scikit-learn ile eğitilmiş state-of-the-art model</p>
+        </div>
+        <div class="feature-card">
+            <h3>⚡ Hızlı API</h3>
+            <p>FastAPI ile milisaniye cinsinden tahmin sonuçları</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Başlamak İçin</h2>
+        <p>Cam özelliklerini girin ve türünü öğrenin</p>
+        <a href="/predict-page" class="btn btn-primary">Tahmin Yap</a>
+    </div>
+
+    <div class="glass-types">
+        <h2>Cam Türleri</h2>
+        <div class="types-grid">
+            <div class="type-item">
+                <span class="type-number">1</span>
+                <p>Building Windows Float</p>
+            </div>
+            <div class="type-item">
+                <span class="type-number">2</span>
+                <p>Building Windows Non-Float</p>
+            </div>
+            <div class="type-item">
+                <span class="type-number">3</span>
+                <p>Vehicle Windows Float</p>
+            </div>
+            <div class="type-item">
+                <span class="type-number">4</span>
+                <p>Vehicle Windows Non-Float</p>
+            </div>
+            <div class="type-item">
+                <span class="type-number">5</span>
+                <p>Containers</p>
+            </div>
+            <div class="type-item">
+                <span class="type-number">6</span>
+                <p>Tableware</p>
+            </div>
+            <div class="type-item">
+                <span class="type-number">7</span>
+                <p>Headlamps</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

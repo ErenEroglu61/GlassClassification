@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Tahmin Yap - Glass Classification{% endblock %}
+
+{% block content %}
+<div class="predict-container">
+    <h1>🔮 Cam Türünü Tahmin Et</h1>
+    <p class="subtitle">Cam özelliklerini girerek türünü öğrenin</p>
+
+    <div class="predict-wrapper">
+        <form id="predictionForm" class="prediction-form">
+            <div class="form-group">
+                <label for="RI">Refractive Index (RI) *</label>
+                <input type="number" id="RI" name="RI" step="0.00001" min="1.5" max="1.6" placeholder="1.52101" required>
+                <small>Kırılma indeksi (1.511 - 1.534)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="Na">Sodium (Na) *</label>
+                <input type="number" id="Na" name="Na" step="0.01" min="0" placeholder="13.64" required>
+                <small>Sodyum yüzdesi (10.73 - 17.38)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="Mg">Magnesium (Mg) *</label>
+                <input type="number" id="Mg" name="Mg" step="0.01" min="0" placeholder="4.49" required>
+                <small>Magnezyum yüzdesi (0 - 4.49)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="Al">Aluminum (Al) *</label>
+                <input type="number" id="Al" name="Al" step="0.01" min="0" placeholder="1.10" required>
+                <small>Alüminyum yüzdesi (0.29 - 3.50)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="Si">Silicon (Si) *</label>
+                <input type="number" id="Si" name="Si" step="0.01" min="69" max="76" placeholder="71.78" required>
+                <small>Silikon yüzdesi (69.81 - 75.41)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="K">Potassium (K) *</label>
+                <input type="number" id="K" name="K" step="0.01" min="0" placeholder="0.06" required>
+                <small>Potasyum yüzdesi (0 - 6.21)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="Ca">Calcium (Ca) *</label>
+                <input type="number" id="Ca" name="Ca" step="0.01" min="0" placeholder="8.75" required>
+                <small>Kalsiyum yüzdesi (5.43 - 16.19)</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large">Tahmin Yap</button>
+            <button type="reset" class="btn btn-secondary">Temizle</button>
+        </form>
+
+        <div id="result" class="result hidden">
+            <div class="result-header">
+                <h2>📊 Tahmin Sonucu</h2>
+            </div>
+
+            <div class="result-main">
+                <div class="glass-type-box">
+                    <p class="label">Tahmin Edilen Cam Türü</p>
+                    <h3 id="glassType" class="glass-type-value">-</h3>
+                    <p id="glassTypeNumber" class="glass-type-number">-</p>
+                </div>
+
+                <div class="confidence-box">
+                    <p class="label">Güven Oranı</p>
+                    <div class="confidence-meter">
+                        <div id="confidenceBar" class="confidence-bar" style="width: 0%"></div>
+                    </div>
+                    <p id="confidencePercent" class="confidence-text">0%</p>
+                </div>
+            </div>
+
+            <div class="confidence-details">
+                <h4>Tüm Türlerin Olasılıkları</h4>
+                <div id="confidenceLevels" class="confidence-levels"></div>
+            </div>
+
+            <button onclick="resetForm()" class="btn btn-secondary">Yeni Tahmin</button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/script.js"></script>
+{% endblock %}
