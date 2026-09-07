@@ -2,12 +2,11 @@ import pickle
 import numpy as np
 from pathlib import Path
 
-
 class GlassClassifier:
 
 
     def __init__(self):
-        model_path = Path("data/models")
+        model_path = Path("datasets/models")
 
         try:
             with open(model_path / "classifier.pkl", "rb") as f:
